@@ -6,6 +6,12 @@
     <RootNamespace>Final_Project_OOP_TheRealDeLorian</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.13.3" />
+    <PackageReference Include="nunit3testadapter" Version="4.2.1" />
+  </ItemGroup>
 
 </Project>
