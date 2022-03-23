@@ -14,4 +14,10 @@
     <PackageReference Include="nunit3testadapter" Version="4.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="Program.Tests\Program.Tests.csproj" />
+    <ProjectReference Include="BlazorUI\scheduleUI.csproj" />
+    <ProjectReference Include="ClassLibrary\ClassLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
