@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@page "/counter/{startingValue:int}"
+@page "/dothestuff"
 
 <PageTitle>Counter</PageTitle>
 
@@ -10,6 +12,9 @@
 
 @code {
     private int currentCount = 0;
+
+    [Parameter]
+    public int startingValue { get; set; } = 0;
 
     [Parameter]
     public int IncrementBy { get; set; } = 5;
