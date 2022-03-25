@@ -1,0 +1,5 @@
+courseName
+weekday
+timeStart
+timeEnd
+professor

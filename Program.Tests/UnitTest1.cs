@@ -1,6 +1,7 @@
 using NUnit.Framework;
+using System;
 
-namespace Program.Tests;
+namespace FinalProject;
 
 public class Tests
 {
@@ -12,7 +13,10 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Professor newprof = new Professor();
-        newprof.
+        Professor Allan = new Professor();
+        Course testCourse = new Course("Programming Fundamentals", weekday.Monday, DateTime.Parse("08:30"), DateTime.Parse("09:20"), Allan);
+
+        // Assert.AreEqual(testCourse);
+        
     }
 }

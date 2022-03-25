@@ -1,4 +1,4 @@
-﻿
+﻿namespace FinalProject;
 
 
 class Program
@@ -23,3 +23,4 @@ class Program
         
     }
 }
+
