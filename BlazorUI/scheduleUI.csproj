@@ -4,6 +4,11 @@
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Blazor" Version="19.4.0.56" />
+    <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="19.4.0.56" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

@@ -1,11 +1,11 @@
 ﻿@page "/"
+@inject NavigationManager nav
 
-<h1>Hello, world!</h1>
+<h1>Welcome!</h1>
 
-Welcome to your new app.
+to your new schedule builder!
 
-<SurveyPrompt Title="How is Blazor working for you?" />
 
-<Counter />
+<p><button @onclick="@(()=>nav.NavigateTo("/signinPage"))">Sign in</button></p>
 
-<FetchData />
+

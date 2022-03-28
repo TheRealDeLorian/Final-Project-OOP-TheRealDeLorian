@@ -1,0 +1,25 @@
+@page "/signinPage"
+@namespace FinalProject
+
+<h3>Sign in</h3>
+<p>Please enter your Badger ID and choose your major.</p>
+
+<input @bind="NewID" placeholder="Student ID" />
+<!-- drop down box for major -->
+<button @onclick="Save">Save</button>
+
+
+@code {
+    Student newStudent = new Student();
+
+    private string NewID = string.Empty;
+
+    private void Save()
+    {
+        if (string.IsNullOrEmpty(NewID)) return;
+
+        newStudent.studentID = NewID;
+
+
+    }
+}
