@@ -13,10 +13,11 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Professor Allan = new Professor();
-        Course testCourse = new Course("Programming Fundamentals", weekday.Monday, DateTime.Parse("08:30"), DateTime.Parse("09:20"), Allan);
+        Student Dorian = new Student();
+        Course ProgFund = new Course("Programming Fundamentals"); //when the program runs I want it to have a database of courses already
+        Dorian.AddCourse(ProgFund);
 
-        // Assert.AreEqual(testCourse);
+        Assert.AreEqual(ProgFund, Dorian.studentSchedule[0]); //Passed!
         
     }
 }
