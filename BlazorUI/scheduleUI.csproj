@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Blazor" Version="19.4.0.56" />
     <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="19.4.0.56" />
+    <PackageReference Include="Syncfusion.Blazor.SplitButtons" Version="19.4.0.56" />
   </ItemGroup>
 
   <PropertyGroup>

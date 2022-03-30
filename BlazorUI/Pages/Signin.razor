@@ -8,6 +8,14 @@
 <!-- drop down box for major -->
 <button @onclick="Save">Save</button>
 
+<SfDropDownButton Content="Edit">
+    <DropDownMenuItems>
+        <DropDownMenuItem Text="Cut"></DropDownMenuItem>
+        <DropDownMenuItem Text="Copy"></DropDownMenuItem>
+        <DropDownMenuItem Text="Paste"></DropDownMenuItem>
+    </DropDownMenuItems>
+</SfDropDownButton>
+
 
 @code {
     Student newStudent = new Student();
