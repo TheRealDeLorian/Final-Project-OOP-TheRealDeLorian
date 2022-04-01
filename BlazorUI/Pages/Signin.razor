@@ -1,5 +1,6 @@
 @page "/signinPage"
 @namespace FinalProject
+@inject NavigationManager nav
 
 <h3>Sign in</h3>
 <p>Please enter your Badger ID and choose your major.</p>
@@ -8,6 +9,7 @@
 <br />
 <SfDropDownButton Content="Majors">
     <DropDownMenuItems>
+        <DropDownMenuItem Text="Undecided"></DropDownMenuItem>
         <DropDownMenuItem Text="Software Engineering"></DropDownMenuItem>
         <DropDownMenuItem Text="Music"></DropDownMenuItem>
     </DropDownMenuItems>
@@ -28,6 +30,8 @@
         if (string.IsNullOrEmpty(NewID)) return;
 
         newStudent.studentID = NewID;
+
+        nav.NavigateTo("/ScheduleBuilder");
 
 
     }
