@@ -12,6 +12,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
 
 var app = builder.Build();
+//Register Syncfusion license
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjAzMzcwQDMxMzkyZTM0MmUzMEhGa1RtTW1yb016VnpkNGxCUFRVM05UMzdzdTczY3k5dmRXTVVXNllJZW89");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -31,3 +33,5 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+
+

@@ -5,16 +5,17 @@
 <p>Please enter your Badger ID and choose your major.</p>
 
 <input @bind="NewID" placeholder="Student ID" />
-<!-- drop down box for major -->
-<button @onclick="Save">Save</button>
-
-<SfDropDownButton Content="Edit">
+<br />
+<SfDropDownButton Content="Majors">
     <DropDownMenuItems>
-        <DropDownMenuItem Text="Cut"></DropDownMenuItem>
-        <DropDownMenuItem Text="Copy"></DropDownMenuItem>
-        <DropDownMenuItem Text="Paste"></DropDownMenuItem>
+        <DropDownMenuItem Text="Software Engineering"></DropDownMenuItem>
+        <DropDownMenuItem Text="Music"></DropDownMenuItem>
     </DropDownMenuItems>
 </SfDropDownButton>
+<br />
+<button @onclick="Save">Save</button>
+
+
 
 
 @code {
