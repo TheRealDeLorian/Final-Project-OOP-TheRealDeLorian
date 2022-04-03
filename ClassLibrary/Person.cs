@@ -9,10 +9,8 @@ public abstract class Person
 
     List<Course> courseSchedule = new List<Course>(); //every time a course is dragged and dropped, it is added to this list. 
 
-    public virtual void AddCourse()
-    {
-
-    }
+    public extern void AddCourse();
+    
 }
 
 public class Student : Person

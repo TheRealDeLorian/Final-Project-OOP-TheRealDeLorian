@@ -21,13 +21,6 @@ public class Tests
 
     }
 
-    [Test]
-    public void Test2()
-    {
-        Course TestCourse = new Course();
-        string[] test = TestCourse.MasterCourseListReader();
-
-        Assert.AreEqual("1593 ;\r\nA Cappella Choir ;\r\nMWF ;\r\n1:30 PM ;\r\n2:20 PM ;\r\n1 ;\r\nMichael Huff ;\r\n\r\n", test[0]);
-
-    }
+   
+  
 }
