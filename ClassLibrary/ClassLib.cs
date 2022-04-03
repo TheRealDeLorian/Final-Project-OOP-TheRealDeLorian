@@ -1,7 +1,7 @@
 ﻿namespace FinalProject;
 public enum weekday
 {
-    Monday, Tuesday, Wednesday, Thursday, Friday
+    MWF, TR, MTWR, MTWRF, Monday, Tuesday, Wednesday, Thursday, Friday
 }
 
 
@@ -54,3 +54,6 @@ public interface IScheduleBlock //it might be best to put these methods in some 
 
 
 }
+
+
+// public class 

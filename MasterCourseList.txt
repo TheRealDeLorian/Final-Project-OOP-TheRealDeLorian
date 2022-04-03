@@ -1,9 +1,18 @@
-string CRN
-string courseName
-Weekday weekday
-DateTime timeStart
-DateTime timeEnd
-int creditHours
-Professor professor
+1593 ;
+A Cappella Choir ;
+MWF ;
+1:30 PM ;
+2:20 PM ;
+1 ;
+Michael Huff ;
 
+%
+
+1854 ;
+Intro to Web Development ;
+TR ;
+11:00 AM ;
+12:15 PM ;
+3 ;
+Adam Teichert ;
 

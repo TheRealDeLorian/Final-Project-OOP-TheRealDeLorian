@@ -1,0 +1,7 @@
+string CRN
+string courseName
+Weekday weekday
+DateTime timeStart
+DateTime timeEnd
+int creditHours
+Professor professor

@@ -2,7 +2,7 @@ namespace FinalProject;
 
 using System.Collections.Generic;
 
-public class Person
+public abstract class Person
 {
     string phone;
     string email;
