@@ -1,3 +1,5 @@
-1. MAKE FILES
+Make courses more usable
 
-2. Make weekday overloads for the Course constructor
+ MAKE FILES
+2. Make a method that can read the file and turn it into a hashtable of course classes
+3. add error message for invalid id

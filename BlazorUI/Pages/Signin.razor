@@ -30,9 +30,8 @@
         if (string.IsNullOrEmpty(NewID)) return;
 
         newStudent.studentID = NewID;
+        //add an error message for invalid id
 
         nav.NavigateTo("/ScheduleBuilder");
-
-
     }
 }

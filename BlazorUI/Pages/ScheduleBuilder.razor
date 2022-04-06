@@ -1,12 +1,19 @@
 @page "/ScheduleBuilder"
-
+@inject NavigationManager nav
 
 @* <button @onclick="@(()=>"> *@
 
 
 
 <h1>Schedule Builder under construction! Come back soon!</h1>
+<button @onclick="GoBack">Home</button>
 
+@code {
+    public void GoBack() 
+    {
+        nav.NavigateTo("/");
+    }
+}
 
 <table id="coursebank">
     <tr>
