@@ -1,15 +1,15 @@
 ﻿namespace FinalProject;
 public enum weekday
 {
-    MWF, TR, MTWR, MTWRF, Monday, Tuesday, Wednesday, Thursday, Friday
+    Monday, Tuesday, Wednesday, Thursday, Friday
 }
 
 public class DataManagement
 {
     //hashtable with all available courses
-    //method that reads a file and converts data to strings wkdays etc.
-            
-    //method that adds course data to the above hashtable (with CRN as the key)
+    //method that reads a file and string.splits %
+    //method that takes those splits and turns each into an instance of course
+    //method that takes each of those instances and puts into hashtable with CRN as the key
     //method that inputs a an instance of course (students choices) and saves to a file
     
     //method that reads student and teacher savedata files, and returns a hashtable of Courses* could be the same as above filereader and probably will be

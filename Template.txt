@@ -1,7 +1,10 @@
-string CRN
-string courseName
-Weekday weekday
-DateTime timeStart
-DateTime timeEnd
-int creditHours
-Professor professor
+CRN
+courseName
+timeStart
+timeEnd
+description
+weekday
+weekday2
+weekday3
+weekday4
+weekday5
