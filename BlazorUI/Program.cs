@@ -11,6 +11,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 // builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = true; });
+// //idk what is wrong here but ill fix it later
+//  builder.Services.AddSyncfusionBlazor(options => { options.IgnoreScriptIsolation = false; });
 
 var app = builder.Build();
 //Register Syncfusion license

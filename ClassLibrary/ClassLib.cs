@@ -1,4 +1,6 @@
-﻿namespace FinalProject;
+﻿
+namespace FinalProject;
+
 public enum weekday
 {
     Monday, Tuesday, Wednesday, Thursday, Friday
@@ -7,9 +9,24 @@ public enum weekday
 public class DataManagement
 {
     //hashtable with all available courses
-    //method that reads a file and string.splits %
+    static System.Collections.Hashtable allCourses = new System.Collections.Hashtable();
+    //method that reads a file 
+    public string Read(string fileName) => File.ReadAllText(fileName); //ADD WHAT IF FILE NOT FOUND
+    //method that string.splits %
+    public string[] Split(string fileContents, char splitter) => fileContents.Split(splitter);
     //method that takes those splits and turns each into an instance of course
+    public Course CourseFactory(string fileName, string[] courseInfo)
+    {
+        string fileString = File.ReadAllText(fileName);
+        List<string> splitString = fileString.Split('%').ToList<string>();
+        //so now weve got a list of strings, each string has each piece we need to make one instance of Course class. We need to split each member of splitstring into another array of strings, then feed each of those pieces into a class. 
+        
+
+        courseInfo
+        return newCourse;
+    } 
     //method that takes each of those instances and puts into hashtable with CRN as the key
+    allCourses.Add(CRN[i], course[i]);
     //method that inputs a an instance of course (students choices) and saves to a file
     
     //method that reads student and teacher savedata files, and returns a hashtable of Courses* could be the same as above filereader and probably will be
