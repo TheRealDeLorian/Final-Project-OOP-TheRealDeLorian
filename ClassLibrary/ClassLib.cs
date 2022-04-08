@@ -15,18 +15,23 @@ public class DataManagement
     //method that string.splits %
     public string[] Split(string fileContents, char splitter) => fileContents.Split(splitter);
     //method that takes those splits and turns each into an instance of course
-    public Course CourseFactory(string fileName, string[] courseInfo)
+    List<Course> courseList;
+    public List<Course> CourseFactory(string fileName)
     {
         string fileString = File.ReadAllText(fileName);
         List<string> splitString = fileString.Split('%').ToList<string>();
         //so now weve got a list of strings, each string has each piece we need to make one instance of Course class. We need to split each member of splitstring into another array of strings, then feed each of those pieces into a class. 
-        
+        for (int i = 0; i < splitString.Count; i++)
+        {
+            var courseInfo = splitString[i].Split('\n');
+            Course newCourse = new Course(courseInfo);
+            courseList.Add(newCourse);
+        }
 
-        courseInfo
-        return newCourse;
+        
+        return courseList;
     } 
     //method that takes each of those instances and puts into hashtable with CRN as the key
-    allCourses.Add(CRN[i], course[i]);
     //method that inputs a an instance of course (students choices) and saves to a file
     
     //method that reads student and teacher savedata files, and returns a hashtable of Courses* could be the same as above filereader and probably will be

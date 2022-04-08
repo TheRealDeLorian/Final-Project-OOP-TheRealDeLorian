@@ -14,7 +14,7 @@ public class Tests
     public void Test1()
     {
         Student Dorian = new Student();
-        Course ProgFund = new Course("Programming Fundamentals"); //when the program runs I want it to have a database of courses already
+        Course ProgFund = new Course(); //when the program runs I want it to have a database of courses already
         Dorian.AddCourse(ProgFund);
 
         Assert.AreEqual(ProgFund, Dorian.studentSchedule[0]); //Passed!
