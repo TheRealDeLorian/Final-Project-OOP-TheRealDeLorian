@@ -13,11 +13,9 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Student Dorian = new Student();
-        Course ProgFund = new Course(); //when the program runs I want it to have a database of courses already
-        Dorian.AddCourse(ProgFund);
+       var idk = DataManagement.CourseFactory("@C:/Users/thene/code/Final-Project-OOP-TheRealDeLorian/MasterCourseList.txt");
 
-        Assert.AreEqual(ProgFund, Dorian.studentSchedule[0]); //Passed!
+       Console.WriteLine(idk[1]);
 
     }
 

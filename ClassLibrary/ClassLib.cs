@@ -6,17 +6,15 @@ public enum weekday
     Monday, Tuesday, Wednesday, Thursday, Friday
 }
 
-public class DataManagement
+public static class DataManagement
 {
     //hashtable with all available courses
     static System.Collections.Hashtable allCourses = new System.Collections.Hashtable();
     //method that reads a file 
-    public string Read(string fileName) => File.ReadAllText(fileName); //ADD WHAT IF FILE NOT FOUND
-    //method that string.splits %
-    public string[] Split(string fileContents, char splitter) => fileContents.Split(splitter);
+    static string Read(string fileName) => File.ReadAllText(fileName); //ADD WHAT IF FILE NOT FOUND
     //method that takes those splits and turns each into an instance of course
-    List<Course> courseList;
-    public List<Course> CourseFactory(string fileName)
+    static List<Course> courseList;
+    public static List<Course> CourseFactory(string fileName)
     {
         string fileString = File.ReadAllText(fileName);
         List<string> splitString = fileString.Split('%').ToList<string>();
@@ -27,8 +25,6 @@ public class DataManagement
             Course newCourse = new Course(courseInfo);
             courseList.Add(newCourse);
         }
-
-        
         return courseList;
     } 
     //method that takes each of those instances and puts into hashtable with CRN as the key
