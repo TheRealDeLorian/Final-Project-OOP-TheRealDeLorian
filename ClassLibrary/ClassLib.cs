@@ -13,7 +13,7 @@ public static class DataManagement
     //method that reads a file 
     static string Read(string fileName) => File.ReadAllText(fileName); //ADD WHAT IF FILE NOT FOUND
     //method that takes those splits and turns each into an instance of course
-    static List<Course> courseList;
+    static List<Course> courseList = new();
     public static List<Course> CourseFactory(string fileName)
     {
         string fileString = File.ReadAllText(fileName);
@@ -22,8 +22,9 @@ public static class DataManagement
         for (int i = 0; i < splitString.Count; i++)
         {
             var courseInfo = splitString[i].Split('\n');
-            Course newCourse = new Course(courseInfo);
-            courseList.Add(newCourse);
+            var name = $"Course {i}";
+            courseList.Add(new Course(courseInfo));
+            // Course newCourse = new Course(courseInfo);
         }
         return courseList;
     } 

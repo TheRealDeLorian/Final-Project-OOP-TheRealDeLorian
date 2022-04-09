@@ -13,9 +13,11 @@ public class Tests
     [Test]
     public void Test1()
     {
-       var idk = DataManagement.CourseFactory("@C:/Users/thene/code/Final-Project-OOP-TheRealDeLorian/MasterCourseList.txt");
 
-       Console.WriteLine(idk[1]);
+        var listofcourses = DataManagement.CourseFactory("C:/Users/thene/code/Final-Project-OOP-TheRealDeLorian/MasterCourseList.txt");
+        Assert.IsInstanceOf(Course, listofcourses[0]);
+          
+
 
     }
 
