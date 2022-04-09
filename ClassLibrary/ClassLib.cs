@@ -8,8 +8,8 @@ public enum weekday
 
 public static class DataManagement
 {
-    //hashtable with all available courses
-    static System.Collections.Hashtable allCourses = new System.Collections.Hashtable();
+    
+    static System.Collections.Hashtable allCourses = new System.Collections.Hashtable(); //hashtable with all available courses
     //method that reads a file 
     static string Read(string fileName) => File.ReadAllText(fileName); //ADD WHAT IF FILE NOT FOUND
     //method that takes those splits and turns each into an instance of course
