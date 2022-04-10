@@ -10,24 +10,20 @@ public static class DataManagement
 {
     
     static System.Collections.Hashtable allCourses = new System.Collections.Hashtable(); //hashtable with all available courses
-    //method that reads a file 
-    static string Read(string fileName) => File.ReadAllText(fileName); //ADD WHAT IF FILE NOT FOUND
-    //method that takes those splits and turns each into an instance of course
-    static List<Course> courseList = new();
-    public static List<Course> CourseFactory(string fileName)
+    public static List<string[]> courseLibrary = new List<string[]>();
+    public static void CourseLibraryMaker(string fileName)
     {
         string fileString = File.ReadAllText(fileName);
+        fileString.Replace("\r", "");
         List<string> splitString = fileString.Split('%').ToList<string>();
-        //so now weve got a list of strings, each string has each piece we need to make one instance of Course class. We need to split each member of splitstring into another array of strings, then feed each of those pieces into a class. 
         for (int i = 0; i < splitString.Count; i++)
         {
-            var courseInfo = splitString[i].Split('\n');
-            var name = $"Course {i}";
-            courseList.Add(new Course(courseInfo));
-            // Course newCourse = new Course(courseInfo);
+            var courseInfo = splitString[i].Split('\r');
+            courseLibrary.Add(courseInfo);
         }
-        return courseList;
+        return;
     } 
+
     //method that takes each of those instances and puts into hashtable with CRN as the key
     //method that inputs a an instance of course (students choices) and saves to a file
     
