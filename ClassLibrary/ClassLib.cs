@@ -1,16 +1,14 @@
 ﻿
 namespace FinalProject;
 
-public enum weekday
-{
-    Monday, Tuesday, Wednesday, Thursday, Friday
-}
 
 public static class DataManagement
 {
     
     static System.Collections.Hashtable allCourses = new System.Collections.Hashtable(); //hashtable with all available courses
-    public static List<string[]> courseLibrary = new List<string[]>();
+    public static List<Course> courseLibrary = new List<Course>();
+
+    courseLibrary = System.Text.Json.JsonSerializer.Deserialize<List<Course>>(json);
     public static void CourseLibraryMaker(string fileName)
     {
         string fileString = File.ReadAllText(fileName);
@@ -85,4 +83,7 @@ public interface IScheduleBlock //it might be best to put these methods in some 
 }
 
 
-// public class 
+// public enum weekday
+// {
+//     Monday, Tuesday, Wednesday, Thursday, Friday
+// }

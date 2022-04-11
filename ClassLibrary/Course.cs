@@ -7,11 +7,7 @@ public class Course //all this needs to do is take a string, split it up, and co
     public string timeStart;
     public string timeEnd;
     public string description;
-    public string weekday;
-    public string weekday2;
-    public string weekday3;
-    public string weekday4;
-    public string weekday5;
+    public string[] days;
     public Course(string[] courseInfo) ///course info needs to be in this format: CRN\nCoursename\ntimeStart\ntimeEnd\ndescription\nweekday\nweekday2\n etc.
     {
         if (courseInfo.Length < 6)
@@ -23,7 +19,7 @@ public class Course //all this needs to do is take a string, split it up, and co
         timeStart = courseInfo[2];
         timeEnd = courseInfo[3];
         description = courseInfo[4];
-        weekday = courseInfo[5];
+        days = courseInfo[5];
         // if (courseInfo.Length >= 7)
         // {
             // weekday2 = courseInfo[6];
@@ -46,7 +42,7 @@ public class Course //all this needs to do is take a string, split it up, and co
         //     weekday4 = courseInfo[8];
             // weekday5 = courseInfo[9];
         // }//find a better way to overflow these if theres more than one weekday
-    }
+    } //make array called days offerered in the courseobject class 
 
 }
 

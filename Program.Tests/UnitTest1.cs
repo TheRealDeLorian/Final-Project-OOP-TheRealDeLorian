@@ -16,6 +16,7 @@ public class Tests
 
         DataManagement.CourseLibraryMaker("C:/Users/thene/code/Final-Project-OOP-TheRealDeLorian/MasterCourseList.txt");
         Assert.AreEqual("1593", DataManagement.courseLibrary[0][0]);
+        Assert.AreEqual("Intro to Web Development", DataManagement.courseLibrary[1][1]);
           
 
 
