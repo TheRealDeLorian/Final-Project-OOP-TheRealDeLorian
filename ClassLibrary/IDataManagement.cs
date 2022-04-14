@@ -3,28 +3,49 @@ namespace FinalProject;
 
 public interface IDataManagement
 {
-    public void SaveCourses(IEnumerable<Course> courses);
-    public IEnumerable<Course> LoadCourses();
+    public void SaveCourses(List<Course> courses, int ID);
+    public List<Course> LoadCourses(int ID);
+
+   
 }
 
-public class JsonSerializedStorageService : IDataManagement
+public class CSVDataManagement : IDataManagement
 {
-    public IEnumerable<Course> LoadCourses()
+    public List<Course> LoadCourses(int ID)
     {
-        List<Course> courses = new List<Course>();
-        if (File.Exists("MasterCourseList.json"))
-        {
-            var json = File.ReadAllText("MasterCourseList.json");
-            courses = System.Text.Json.JsonSerializer.Deserialize<List<Course>>(json);
+        var courses = new List<Course>();
+        var CRN = "";
+        var CourseName = "";
+        var TimeStart = "0:00";
+        var TimeEnd = "0:00";
+        var Description = "";
+        string[] Days;
+        string filePath = Path.Combine("Courses", $"{ID}.csv");
 
+        foreach (var line in File.ReadAllLines(filePath))
+        {
+            var courseInfoParts = line.Split(','); //TAKE OUT IFS
+            CRN = courseInfoParts[0];
+            CourseName = courseInfoParts[1];
+            TimeStart = courseInfoParts[2];
+            TimeEnd = courseInfoParts[3];
+            Description = courseInfoParts[4];
+            Days = courseInfoParts[5].Split('|');
+
+            var course = new Course(CRN) {
+                CourseName = CourseName,
+                TimeStart = TimeStart,
+                TimeEnd = TimeEnd,
+                Description = Description,
+                Days = Days
+            };
+            courses.Add(course);
         }
         return courses;
     }
 
-    public void SaveCourses(IEnumerable<Course> courses)
+    public void SaveCourses(List<Course> courses, int ID)
     {
-        var json = System.Text.Json.JsonSerializer.Serialize(courses);
-        File.WriteAllText("accounts.json", json);
+        throw new NotImplementedException();
     }
-
 }

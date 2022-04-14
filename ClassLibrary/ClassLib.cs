@@ -1,34 +1,26 @@
 ﻿
 namespace FinalProject;
 
-
-public static class DataManagement
+public class StudentScheduleDataManagement : IDataManagement
 {
-    
-    static System.Collections.Hashtable allCourses = new System.Collections.Hashtable(); //hashtable with all available courses
-    public static List<Course> courseLibrary = new List<Course>();
-
-    courseLibrary = System.Text.Json.JsonSerializer.Deserialize<List<Course>>(json);
-    public static void CourseLibraryMaker(string fileName)
+    public IEnumerable<Course> LoadCourses()
     {
-        string fileString = File.ReadAllText(fileName);
-        fileString.Replace("\r", "");
-        List<string> splitString = fileString.Split('%').ToList<string>();
-        for (int i = 0; i < splitString.Count; i++)
+        List<Course> courses = new List<Course>();
+        if (File.Exists("MasterCourseList.txt"))
         {
-            var courseInfo = splitString[i].Split('\r');
-            courseLibrary.Add(courseInfo);
+            courses = Course.Load("MasterCourseList.txt");
         }
-        return;
-    } 
+        return courses;
+    }
 
-    //method that takes each of those instances and puts into hashtable with CRN as the key
-    //method that inputs a an instance of course (students choices) and saves to a file
-    
-    //method that reads student and teacher savedata files, and returns a hashtable of Courses* could be the same as above filereader and probably will be
-    //various student schedule savedata files
-            //teacher schedules (if time)
+    public void SaveCourses(IEnumerable<Course> courses)
+    {
+        throw new NotImplementedException();
+    }
 }
+
+
+
 
 
 public class Login
@@ -83,7 +75,3 @@ public interface IScheduleBlock //it might be best to put these methods in some 
 }
 
 
-// public enum weekday
-// {
-//     Monday, Tuesday, Wednesday, Thursday, Friday
-// }

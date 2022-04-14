@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using System;
+using System.IO;
 
 namespace FinalProject;
 
@@ -13,22 +13,13 @@ public class Tests
     [Test]
     public void Test1()
     {
-
-        DataManagement.CourseLibraryMaker("C:/Users/thene/code/Final-Project-OOP-TheRealDeLorian/MasterCourseList.txt");
-        Assert.AreEqual("1593", DataManagement.courseLibrary[0][0]);
-        Assert.AreEqual("Intro to Web Development", DataManagement.courseLibrary[1][1]);
-          
-
-
+        Assert.AreEqual(true, File.Exists("C:/Users/thene/code/Final-Project-OOP-TheRealDeLorian/ClassLibrary/MasterCourseList.txt"));
     }
 
     [Test]
     public void Test2() //just to see if course classes can be made
     {
-        string[] info = {"1854", "intro to web dev", "11:00", "12:15", "learn web development", "Monday"};
-        Course testCourse = new Course(info);
-        Assert.AreEqual("1854", testCourse.CRN, "Should equal 1854");
-        Assert.AreEqual("Monday", testCourse.weekday);
+        
     }
 
    

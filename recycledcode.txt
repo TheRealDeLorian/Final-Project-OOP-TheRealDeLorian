@@ -1,0 +1,31 @@
+ // static System.Collections.Hashtable allCourses = new System.Collections.Hashtable(); //hashtable with all available courses
+    // public static List<Course> courseLibrary = new List<Course>();
+
+    // courseLibrary = System.Text.Json.JsonSerializer.Deserialize<List<Course>>(json);
+    // public static void CourseLibraryMaker(string fileName)
+    // {
+    //     string fileString = File.ReadAllText(fileName);
+    //     fileString.Replace("\r", "");
+    //     List<string> splitString = fileString.Split('%').ToList<string>();
+    //     for (int i = 0; i < splitString.Count; i++)
+    //     {
+    //         var courseInfo = splitString[i].Split('\r');
+    //         courseLibrary.Add(courseInfo);
+    //     }
+    //     return;
+    // } 
+
+    //method that takes each of those instances and puts into hashtable with CRN as the key
+    //method that inputs a an instance of course (students choices) and saves to a file
+    
+    //method that reads student and teacher savedata files, and returns a hashtable of Courses* could be the same as above filereader and probably will be
+    //various student schedule savedata files
+            //teacher schedules (if time)
+
+
+
+
+// public enum weekday
+// {
+//     Monday, Tuesday, Wednesday, Thursday, Friday
+// }
