@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FinalProject;
 
 
@@ -13,9 +14,11 @@ class Program
         Console.ReadKey(ConsoleKey.Enter);
         Console.WriteLine("Loading...");
 
-        CSVDataManagement.LoadCourses("0.csv");
+        List<Course> courses = new List<Course>("0.csv");
 
+        courses.LoadCourses();
 
+        System.Console.WriteLine(courses.Description);
 
 
 
