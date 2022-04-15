@@ -1,19 +1,18 @@
-﻿
-namespace FinalProject;
+﻿namespace FinalProject;
 
 public class StudentScheduleDataManagement : IDataManagement
 {
-    public IEnumerable<Course> LoadCourses()
+    public List<Course> LoadCourses(int ID)
     {
         List<Course> courses = new List<Course>();
         if (File.Exists("MasterCourseList.txt"))
         {
-            courses = Course.Load("MasterCourseList.txt");
+            // courses = Course.LoadCourses("MasterCourseList.txt");
         }
         return courses;
     }
 
-    public void SaveCourses(IEnumerable<Course> courses)
+    public void SaveCourses(List<Course> courses, int ID)
     {
         throw new NotImplementedException();
     }

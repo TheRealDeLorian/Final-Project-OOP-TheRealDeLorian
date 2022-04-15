@@ -46,6 +46,8 @@ public class CSVDataManagement : IDataManagement
 
     public void SaveCourses(List<Course> courses, int ID)
     {
-        throw new NotImplementedException();
+        StreamWriter writer = new StreamWriter(Path.Combine("Courses", $"{ID}.csv"));
+        writer.WriteLine(courses);
+        writer.Close();
     }
 }
