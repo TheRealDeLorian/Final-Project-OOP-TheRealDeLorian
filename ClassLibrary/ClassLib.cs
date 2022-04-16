@@ -24,13 +24,13 @@ public class StudentScheduleDataManagement : IDataManagement
 
 public class Login
 {
-    public int ReadInt(string input)
+    public static int ReadInt()
     {
         while(true)
         {
             try
             {
-                return int.Parse(input);
+                return int.Parse(Console.ReadLine());
             }
             catch
             {

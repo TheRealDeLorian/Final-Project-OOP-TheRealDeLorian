@@ -1,4 +1,4 @@
-CRN, courseName, timeStart, timeEnd, description, days
-1593, A_Cappella_Choir, 1:30 PM, 2:20 PM, sing some songs, Monday | Wednesday | Friday
-1854, Intro to Web Development, 11:00 AM, 12:15 PM, learn web development, Tuesday | Thursday
+CRN,courseName,timeStart,timeEnd,description,days
+1593,A_Cappella_Choir,1:30 PM,2:20 PM,sing some songs,Monday|Wednesday|Friday
+1854,Intro to Web Development,11:00 AM,12:15 PM,learn web development,Tuesday|Thursday
 

@@ -20,7 +20,7 @@ public class Student : Person
 {
     static int studentsRegistered = 0;
 
-    public string studentID;
+    public int studentID;
     public List<Course> studentSchedule = new List<Course>();
 
     public void AddCourse(Course courseToBeAdded)//make overflows with course ID numbers and other abbreviations

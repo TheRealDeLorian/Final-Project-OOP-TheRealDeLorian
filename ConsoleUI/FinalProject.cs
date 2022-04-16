@@ -8,17 +8,18 @@ class Program
     static void Main()
     {
         Console.WriteLine("Welcome. Are you ready to make a class schedule? Please enter your Student ID");
-        string id = Login.ReadInt();
+        int ID = Login.ReadInt();
 
         Console.WriteLine("Let's get started! Press enter to show all courses, then choose which ones you want.");
-        Console.ReadKey(ConsoleKey.Enter);
+        Console.ReadKey();
         Console.WriteLine("Loading...");
 
-        List<Course> courses = new List<Course>("0.csv");
+        List<Course> courses = new List<Course>();
 
-        courses.LoadCourses();
+        CSVDataManagement data = new CSVDataManagement();
+        data.LoadCourses(0);
 
-        System.Console.WriteLine(courses.Description);
+        System.Console.WriteLine(data[0].Description);
 
 
 

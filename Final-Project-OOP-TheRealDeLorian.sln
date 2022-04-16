@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program.Tests", "Program.Tests\Program.Tests.csproj", "{1B7CF3AF-9F03-4222-9793-E47623CA819F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scheduleUI", "blazorUI\scheduleUI.csproj", "{4B03BB15-9B8F-4582-8C72-BF07A197281F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{99C0C513-37EC-4825-8AE1-A4F0F895015B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorConsole", "BlazorConsole\BlazorConsole.csproj", "{1E42C553-630D-42B2-AC50-CC93010CA94A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{4E2D479E-7F58-4CB7-B76E-68D53C7E91D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +34,13 @@ Global
 		{1E42C553-630D-42B2-AC50-CC93010CA94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E42C553-630D-42B2-AC50-CC93010CA94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E42C553-630D-42B2-AC50-CC93010CA94A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E2D479E-7F58-4CB7-B76E-68D53C7E91D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E2D479E-7F58-4CB7-B76E-68D53C7E91D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E2D479E-7F58-4CB7-B76E-68D53C7E91D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E2D479E-7F58-4CB7-B76E-68D53C7E91D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117932BA-6805-4095-964B-A6727FCB2AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117932BA-6805-4095-964B-A6727FCB2AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117932BA-6805-4095-964B-A6727FCB2AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117932BA-6805-4095-964B-A6727FCB2AE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
