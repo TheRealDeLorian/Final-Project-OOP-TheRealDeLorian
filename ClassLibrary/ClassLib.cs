@@ -1,10 +1,11 @@
 ﻿namespace FinalProject;
+using System.Collections;
 
 public class StudentScheduleDataManagement : IDataManagement
 {
-    public List<Course> LoadCourses(int ID)
+    public Hashtable LoadCourses(int ID)
     {
-        List<Course> courses = new List<Course>();
+        Hashtable courses = new Hashtable();
         if (File.Exists("MasterCourseList.txt"))
         {
             // courses = Course.LoadCourses("MasterCourseList.txt");
@@ -12,7 +13,7 @@ public class StudentScheduleDataManagement : IDataManagement
         return courses;
     }
 
-    public void SaveCourses(List<Course> courses, int ID)
+    public void SaveCourses(Hashtable courses, int ID)
     {
         throw new NotImplementedException();
     }

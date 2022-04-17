@@ -18,6 +18,11 @@ public abstract class Person
 
 public class Student : Person
 {
+
+    public Student(int ID)
+    {
+        var studentID = ID;
+    }
     static int studentsRegistered = 0;
 
     public int studentID;

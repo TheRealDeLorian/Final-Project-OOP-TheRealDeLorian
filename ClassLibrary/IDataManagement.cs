@@ -1,19 +1,20 @@
 
 namespace FinalProject;
+using System.Collections;
 
 public interface IDataManagement
 {
-    public List<Course> LoadCourses(int ID);
-    public void SaveCourses(List<Course> courses, int ID);
+    public Hashtable LoadCourses(int ID);
+    public void SaveCourses(Hashtable courses, int ID);
 
    
 }
 
 public class CSVDataManagement : IDataManagement
 {
-    public List<Course> LoadCourses(int ID)
+    public Hashtable LoadCourses(int ID)
     {
-        var courses = new List<Course>();
+        var courses = new Hashtable();
         string CRN;
         string CourseName;
         string TimeStart;
@@ -39,12 +40,26 @@ public class CSVDataManagement : IDataManagement
                 Description = Description,
                 Days = Days
             };
-            courses.Add(course);
+            courses.Add(CRN, course);
         }
         return courses;
     }
 
-    public void SaveCourses(List<Course> courses, int ID)
+public void PrintCourse(Course course)
+{
+    Console.WriteLine($"Course Name: {course.CourseName}");
+    Console.WriteLine($"CRN: {course.CRN}");
+    Console.Write("Days offered: ");
+    foreach (string day in course.Days)
+    {
+        Console.Write($"{day} ");
+    }
+    Console.WriteLine($"from {course.TimeStart} to {course.TimeEnd}");
+    Console.WriteLine($"Description: {course.Description}");
+    Console.WriteLine("\n"); //to seperate the courses
+}
+
+    public void SaveCourses(Hashtable courses, int ID)
     {
         StreamWriter writer = new StreamWriter(Path.Combine("Courses", $"{ID}.csv"));
         writer.WriteLine(courses);
