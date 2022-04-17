@@ -7,7 +7,7 @@ public interface IDataManagement
     public List<Course> LoadCourses(int ID);
     public void SaveCourses(List<Course> courses, int ID);
 
-   
+
 }
 
 public class CSVDataManagement : IDataManagement
@@ -34,7 +34,8 @@ public class CSVDataManagement : IDataManagement
             Description = courseInfoParts[4];
             Days = courseInfoParts[5].Split('|');
 
-            var course = new Course(CRN) {
+            var course = new Course(CRN)
+            {
                 CourseName = CourseName,
                 TimeStart = TimeStart,
                 TimeEnd = TimeEnd,
@@ -47,24 +48,28 @@ public class CSVDataManagement : IDataManagement
         return courseList;
     }
 
-public static void PrintCourse(Course course)
-{
-    Console.WriteLine($"Course Name: {course.CourseName}");
-    Console.WriteLine($"CRN: {course.CRN}");
-    Console.Write("Days offered: ");
-    foreach (string day in course.Days)
+    public static void PrintCourse(Course course)
     {
-        Console.Write($"{day} ");
+        Console.WriteLine($"Course Name: {course.CourseName}");
+        Console.WriteLine($"CRN: {course.CRN}");
+        Console.Write("Days offered: ");
+        foreach (string day in course.Days)
+        {
+            Console.Write($"{day} ");
+        }
+        Console.WriteLine($"from {course.TimeStart} to {course.TimeEnd}");
+        Console.WriteLine($"Description: {course.Description}");
+        Console.WriteLine("\n"); //to seperate the courses
     }
-    Console.WriteLine($"from {course.TimeStart} to {course.TimeEnd}");
-    Console.WriteLine($"Description: {course.Description}");
-    Console.WriteLine("\n"); //to seperate the courses
-}
 
     public void SaveCourses(List<Course> courses, int ID)
     {
         StreamWriter writer = new StreamWriter(Path.Combine("Courses", $"{ID}.csv"));
-        writer.WriteLine(courses);
+        foreach (Course course in courses)
+        {
+            writer.WriteLine($"{course.CRN},{course.CourseName},{course.TimeStart},{course.TimeEnd},{course.Description},{course.Days}");
+
+        }
         writer.Close();
     }
 }
