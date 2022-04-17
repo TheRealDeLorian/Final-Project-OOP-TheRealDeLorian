@@ -1,4 +1,6 @@
 CRN,courseName,timeStart,timeEnd,description,days
-1593,A_Cappella_Choir,1:30 PM,2:20 PM,sing some songs,Monday|Wednesday|Friday
+1593,A CappellaChoir,1:30 PM,2:20 PM,sing some songs,Monday|Wednesday|Friday
 1854,Intro to Web Development,11:00 AM,12:15 PM,learn web development,Tuesday|Thursday
-
+1345,Object Oriented Programming,8:30 AM,9:20 PM,Increase your C# knowledge,Monday|Wednesday|Friday
+1324,Pre-Calculus,1:30 PM,2:20 PM,Learn what you need to know before you go to Calculus.,Monday|Tuesday|Wednesday|Thursday|Friday
+4512,Intro to Economics,2:30 PM,4:15 PM,Learn about the economy,Tuesday

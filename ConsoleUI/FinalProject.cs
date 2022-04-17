@@ -7,19 +7,27 @@ class Program
 {
     static void Main()
     {
+        Console.Clear();
         Console.WriteLine("Welcome. Are you ready to make a class schedule? Please enter your Student ID");
         int ID = Login.ReadInt();
+        Student newStudent = new Student(ID);
 
         Console.WriteLine("Let's get started! Press enter to show all courses, then choose which ones you want.");
         Console.ReadKey();
+        Console.Clear();
         Console.WriteLine("Loading...");
 
-        List<Course> courses = new List<Course>();
-
         CSVDataManagement data = new CSVDataManagement();
-        data.LoadCourses(0);
+        List<Course> courses = new List<Course>();
+        courses = data.LoadCourses(0); 
 
-        System.Console.WriteLine(data[0].Description);
+        foreach (Course course in courses)
+        {
+            data.PrintCourse(course);
+        }
+
+        Console.WriteLine("\nSelect courses by typing a CRN and pressing enter. When finished, press enter twice.");
+        
 
 
 
