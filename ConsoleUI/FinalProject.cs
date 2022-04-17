@@ -27,7 +27,16 @@ class Program
         }
 
         Console.WriteLine("\nSelect courses by typing a CRN and pressing enter. When finished, press enter twice.");
+        int input = Login.ReadInt();
+        while (true)
+        {
+            if (input == 0)
+            {
+                //save, return
+            }
+            newStudent.MakeSchedule(input);
         
+        }
 
 
 
