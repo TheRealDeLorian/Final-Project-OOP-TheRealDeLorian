@@ -38,6 +38,11 @@ public class Student : Person
         studentSchedule.Add(courseToBeAdded);
         return;
     }
+
+    public void PrintStudentSchedule()
+    {
+        
+    }
     
 }
 

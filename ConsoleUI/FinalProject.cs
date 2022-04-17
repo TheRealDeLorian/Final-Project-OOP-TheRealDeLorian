@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using FinalProject;
 
 
@@ -18,8 +19,10 @@ class Program
         Console.WriteLine("Loading...");
 
         CSVDataManagement data = new CSVDataManagement();
+        Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
         List<Course> courses = new List<Course>();
         courses = data.LoadCourses(0); 
+        courseDict = data.courseDict;
 
         foreach (Course course in courses)
         {
@@ -27,6 +30,7 @@ class Program
         }
 
         Console.WriteLine("\nSelect courses by typing a CRN and pressing enter. When finished, press enter twice.");
+        List<Course> studentSchedule = new();
         int input = Login.ReadInt();
         while (true)
         {
@@ -34,7 +38,8 @@ class Program
             {
                 //save, return
             }
-            newStudent.MakeSchedule(input);
+            newStudent.AddCourse(courseDict[input]);
+            
         
         }
 

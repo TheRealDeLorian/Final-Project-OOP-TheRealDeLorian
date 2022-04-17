@@ -1,27 +1,6 @@
 ﻿namespace FinalProject;
 using System.Collections;
 
-public class StudentScheduleDataManagement : IDataManagement
-{
-    public Hashtable LoadCourses(int ID)
-    {
-        Hashtable courses = new Hashtable();
-        if (File.Exists("MasterCourseList.txt"))
-        {
-            // courses = Course.LoadCourses("MasterCourseList.txt");
-        }
-        return courses;
-    }
-
-    public void SaveCourses(Hashtable courses, int ID)
-    {
-        throw new NotImplementedException();
-    }
-}
-
-
-
-
 
 public class Login
 {

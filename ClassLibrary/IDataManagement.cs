@@ -4,17 +4,18 @@ using System.Collections;
 
 public interface IDataManagement
 {
-    public Hashtable LoadCourses(int ID);
-    public void SaveCourses(Hashtable courses, int ID);
+    public List<Course> LoadCourses(int ID);
+    public void SaveCourses(List<Course> courses, int ID);
 
    
 }
 
 public class CSVDataManagement : IDataManagement
 {
-    public Hashtable LoadCourses(int ID)
+    public Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
+    public List<Course> LoadCourses(int ID)
     {
-        var courses = new Hashtable();
+        var courseList = new List<Course>();
         string CRN;
         string CourseName;
         string TimeStart;
@@ -40,12 +41,13 @@ public class CSVDataManagement : IDataManagement
                 Description = Description,
                 Days = Days
             };
-            courses.Add(CRN, course);
+            courseDict.Add(int.Parse(CRN), course);
+            courseList.Add(course);
         }
-        return courses;
+        return courseList;
     }
 
-public void PrintCourse(Course course)
+public static void PrintCourse(Course course)
 {
     Console.WriteLine($"Course Name: {course.CourseName}");
     Console.WriteLine($"CRN: {course.CRN}");
@@ -59,7 +61,7 @@ public void PrintCourse(Course course)
     Console.WriteLine("\n"); //to seperate the courses
 }
 
-    public void SaveCourses(Hashtable courses, int ID)
+    public void SaveCourses(List<Course> courses, int ID)
     {
         StreamWriter writer = new StreamWriter(Path.Combine("Courses", $"{ID}.csv"));
         writer.WriteLine(courses);
