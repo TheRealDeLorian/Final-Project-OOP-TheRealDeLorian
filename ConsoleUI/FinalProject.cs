@@ -39,22 +39,19 @@ class Program
                 if (input == 0)
                 {
                     data.SaveCourses(newStudent.studentSchedule, ID);
-                    Console.WriteLine("Schedule successfully saved. Press 1 to view or press 0 to make another schedule.");
-                    int input2 = Login.ReadInt();
+                    Console.WriteLine("Schedule successfully saved. Press 1 to view.");
+                    int input2 = Login.ReadInt(1, 1);
                     switch (input2)
                     {
                         case 1:
-                            List<Course> courses2 = new List<Course>();
-                            courses2 = data.LoadCourses(ID);
-                            foreach (Course course in courses2)
+                            foreach (Course course in courses)
                             {
                                 CSVDataManagement.PrintCourse(course);
                             }
-                            return;
-                        case 0:
-                            break;
+                            return;   
+                         
                     }
-                    //save, return
+                    
                 }
                 try
                 {

@@ -4,13 +4,18 @@ using System.Collections;
 
 public class Login
 {
-    public static int ReadInt()
+    public static int ReadInt(int min = int.MinValue, int max = int.MaxValue)
     {
         while(true)
         {
             try
             {
-                return int.Parse(Console.ReadLine());
+                int input = int.Parse(Console.ReadLine());
+                if (input >= min && input <= max)
+                {
+                    return input;
+                }
+                Console.WriteLine($"Please enter an integer between {min} and {max}");
             }
             catch
             {
