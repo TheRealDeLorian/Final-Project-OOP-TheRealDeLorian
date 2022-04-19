@@ -19,7 +19,7 @@ public class Login
             }
             catch
             {
-                string ermsg = "Whoops! Something went wrong. Make sure you only type numbers.";
+                string ermsg = $"Whoops! Something went wrong. Make sure you only type numbers less than {int.MaxValue}.";
                 Console.WriteLine(ermsg);
             }
         }

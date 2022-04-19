@@ -17,8 +17,10 @@ public class Tests
     }
 
     [Test]
-    public void Test2() //just to see if course classes can be made
+    public void Test2() //just to see if courses can be read
     {
+        CSVDataManagement x = new();
+        x.LoadCourses(1);
         
     }
 
