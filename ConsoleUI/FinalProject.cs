@@ -44,6 +44,8 @@ class Program
                     switch (input2)
                     {
                         case 1:
+                            CSVDataManagement data2 = new CSVDataManagement();
+                            courses = data2.LoadCourses(ID);
                             foreach (Course course in courses)
                             {
                                 CSVDataManagement.PrintCourse(course);
