@@ -15,15 +15,6 @@ public class Course //all this needs to do is take a string, split it up, and co
     public string Description { get; set; }
     public string[] Days { get; set; }
 
-    public virtual void SaveCourseToFile(StreamWriter writer)
-    {
-        writer.WriteLine("CRN:" + this.CRN);
-        writer.WriteLine("CourseName:" + this.CourseName);
-        writer.WriteLine("TimeStart:" + this.TimeStart);
-        writer.WriteLine("TimeEnd:" + this.TimeEnd);
-        writer.WriteLine("Description:" + this.Description);
-        writer.WriteLine("Days:" + this.Days);
-    }
 
     
 

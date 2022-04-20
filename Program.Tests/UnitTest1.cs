@@ -1,13 +1,15 @@
 using NUnit.Framework;
 using System.IO;
 
-namespace FinalProject;
+using FinalProject;
 
 public class Tests
 {
+
     [SetUp]
     public void Setup()
     {
+        
     }
 
     [Test]
@@ -21,7 +23,7 @@ public class Tests
     {
         CSVDataManagement x = new();
         x.LoadCourses(1);
-        
+
     }
 
    

@@ -13,7 +13,7 @@ public interface IDataManagement
 public class CSVDataManagement : IDataManagement
 {
     public Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
-    public List<Course> LoadCourses(int ID)
+    public List<Course> LoadCourses(int ID) //
     {
         var courseList = new List<Course>();
         string CRN;
@@ -42,8 +42,21 @@ public class CSVDataManagement : IDataManagement
                 Description = Description,
                 Days = Days
             };
-            courseDict.Add(int.Parse(CRN), course);
-            courseList.Add(course);
+            try
+            {
+                courseDict.Add(int.Parse(CRN), course);
+                courseList.Add(course);
+            }
+            catch 
+            {
+                int errors = 0;
+                if (courseDict.ContainsKey(int.Parse(CRN)))
+                {
+                    errors++;
+                    Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
+                    continue;
+                }
+            }
         }
         return courseList;
     }
