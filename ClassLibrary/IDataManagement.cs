@@ -77,13 +77,9 @@ public class CSVDataManagement : IDataManagement
 
     public void SaveCourses(List<Course> courses, int ID)
     {
-        StreamWriter writer = new StreamWriter(Path.Combine("Courses", $"{ID}.csv"));
+        StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.csv"));
         foreach (Course course in courses)
         {
-            foreach (string day in course.Days)
-            {
-
-            }
             writer.WriteLine($"{course.CRN},{course.CourseName},{course.TimeStart},{course.TimeEnd},{course.Description},{string.Join("|", course.Days)}");
 
         }
