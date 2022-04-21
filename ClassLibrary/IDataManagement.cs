@@ -6,7 +6,7 @@ using System.Collections;
 
 public interface IDataManagement
 {
-    public void LoadCourses(int ID);
+    public void LoadCourses(int ID, string filePath);
     public void SaveCourses(List<Course> courses, int ID);
 
 
@@ -14,9 +14,12 @@ public interface IDataManagement
 
 public class CSVDataManagement : IDataManagement
 {
+    public static Dictionary<int, Course> masterDict = new();
+    public static List<Course> masterList = new();
     public static Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
-    public List<Course> courseList = new();
-    public void LoadCourses(int ID) 
+    public static List<Course> courseList = new();
+    static bool masterListLoaded = false;
+    public void LoadCourses(int ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
     {
         var courseList = new List<Course>();
         string CRN;
@@ -25,9 +28,6 @@ public class CSVDataManagement : IDataManagement
         string TimeEnd;
         string Description;
         string[] Days;
-        string filePath = Path.Combine("Courses", $"{ID}.csv");
-
-        
 
         foreach (var line in File.ReadAllLines(filePath))
         {
@@ -47,21 +47,27 @@ public class CSVDataManagement : IDataManagement
                 Description = Description,
                 Days = Days
             };
-            try
+            if (ID == 0 && masterListLoaded == false) //loads the masterList
             {
-                courseDict.Add(int.Parse(CRN), course);
-                courseList.Add(course);
+                masterList.Add(course);
+                masterDict.Add(int.Parse(CRN), course);
+                masterListLoaded = true;
+                return;
             }
-            catch
-            {
-                
-                if (courseDict.ContainsKey(int.Parse(CRN)))
-                {
-                    duplicates++;
-                    //Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
-                    continue;
-                }
-            }
+            // try
+            // {
+            //     courseList.Add(course);
+            //     courseDict.Add(int.Parse(CRN), course);
+            // }
+            // catch
+            // {
+            //     if (courseDict.ContainsKey(int.Parse(CRN)))
+            //     {
+            //         duplicates++;
+            //         //Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
+            //         continue;
+            //     }
+            // }
         }
         return;
     }
@@ -92,11 +98,11 @@ public class CSVDataManagement : IDataManagement
     }
 
     int duplicates = 0;
-    public static void PrintSchedule(int ID)
+    public static void PrintSchedule(int ID, CSVDataManagement data)
     {
-        CSVDataManagement data = new CSVDataManagement();
-        data.LoadCourses(ID);
-        var PrintedList = data.courseList;
+        // CSVDataManagement data = new CSVDataManagement();
+        data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.csv"));
+        var PrintedList = CSVDataManagement.courseList;
         foreach (Course course in PrintedList)
         {
             CSVDataManagement.PrintCourse(course);
