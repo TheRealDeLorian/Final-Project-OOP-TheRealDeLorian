@@ -1,10 +1,12 @@
 
 namespace FinalProject;
+
+using System;
 using System.Collections;
 
 public interface IDataManagement
 {
-    public List<Course> LoadCourses(int ID);
+    public void LoadCourses(int ID);
     public void SaveCourses(List<Course> courses, int ID);
 
 
@@ -12,8 +14,9 @@ public interface IDataManagement
 
 public class CSVDataManagement : IDataManagement
 {
-    public Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
-    public List<Course> LoadCourses(int ID) //
+    public static Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
+    public List<Course> courseList = new();
+    public void LoadCourses(int ID) 
     {
         var courseList = new List<Course>();
         string CRN;
@@ -23,6 +26,8 @@ public class CSVDataManagement : IDataManagement
         string Description;
         string[] Days;
         string filePath = Path.Combine("Courses", $"{ID}.csv");
+
+        
 
         foreach (var line in File.ReadAllLines(filePath))
         {
@@ -47,9 +52,9 @@ public class CSVDataManagement : IDataManagement
                 courseDict.Add(int.Parse(CRN), course);
                 courseList.Add(course);
             }
-            catch 
+            catch
             {
-                int duplicates = 0;
+                
                 if (courseDict.ContainsKey(int.Parse(CRN)))
                 {
                     duplicates++;
@@ -58,7 +63,7 @@ public class CSVDataManagement : IDataManagement
                 }
             }
         }
-        return courseList;
+        return;
     }
 
     public static void PrintCourse(Course course)
@@ -84,5 +89,19 @@ public class CSVDataManagement : IDataManagement
 
         }
         writer.Close();
+    }
+
+    int duplicates = 0;
+    public static void PrintSchedule(int ID)
+    {
+        CSVDataManagement data = new CSVDataManagement();
+        data.LoadCourses(ID);
+        var PrintedList = data.courseList;
+        foreach (Course course in PrintedList)
+        {
+            CSVDataManagement.PrintCourse(course);
+        }
+        Console.WriteLine("Press enter to continue.");
+        Console.ReadKey();
     }
 }
