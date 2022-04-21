@@ -18,7 +18,7 @@ class Program
 
             if (File.Exists(Path.Combine("Courses", $"{ID}.csv")))
             {
-                Console.WriteLine($"Welcome back, student number {ID}! Press 1 to view your schedule, or 2 to overwrite your schedule.");
+                Console.WriteLine($"Welcome back, student number {ID}! 1 - view your schedule\n2 - add to your schedule\n3 - delete your schedule and start over");  //I didn't have time to make a delete course method
                 int input = Login.ReadInt(1, 2);
                 switch (input)
                 {
@@ -31,6 +31,9 @@ class Program
                         }
                         return;
                     case 2:
+                        break;
+                    case 3:
+                        File.Delete(Path.Combine("Courses", $"{ID}.csv"));
                         break;
                 }
             }

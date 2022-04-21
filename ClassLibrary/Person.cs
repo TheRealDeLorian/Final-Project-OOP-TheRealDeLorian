@@ -39,10 +39,7 @@ public class Student : Person
         return;
     }
 
-    public void PrintStudentSchedule()
-    {
-        
-    }
+    
     
 }
 
