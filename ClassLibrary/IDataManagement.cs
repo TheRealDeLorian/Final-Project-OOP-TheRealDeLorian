@@ -49,11 +49,11 @@ public class CSVDataManagement : IDataManagement
             }
             catch 
             {
-                int errors = 0;
+                int duplicates = 0;
                 if (courseDict.ContainsKey(int.Parse(CRN)))
                 {
-                    errors++;
-                    Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
+                    duplicates++;
+                    //Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
                     continue;
                 }
             }
