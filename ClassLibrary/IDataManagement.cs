@@ -34,6 +34,11 @@ public class CSVDataManagement : IDataManagement
         foreach (var line in File.ReadAllLines(filePath))
         {
             var courseInfoParts = line.Split(',');
+            if (courseInfoParts.Length != 6)
+            {
+                Console.WriteLine("Error: File is unreadable. Be sure course information is in this format: crn,courseName,timeStart,timeEnd,description,day1|day2|day3");
+                throw new Exception("File unreadable");
+            }
             CRN = courseInfoParts[0];
             CourseName = courseInfoParts[1];
             TimeStart = courseInfoParts[2];
