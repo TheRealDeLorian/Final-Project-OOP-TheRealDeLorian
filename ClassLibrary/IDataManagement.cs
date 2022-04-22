@@ -64,7 +64,14 @@ public class CSVDataManagement : IDataManagement
             else //loads a courseList
             {
                 courseList.Add(course);
-                courseDict.Add(int.Parse(CRN), course);
+                try
+                {
+                    courseDict.Add(int.Parse(CRN), course);
+                }
+                catch
+                {
+                    continue;
+                }
             }
         }
         if (ID == 0)

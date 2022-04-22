@@ -38,6 +38,8 @@ class Program
                         break;
                     case 3:
                         File.Delete(Path.Combine("Courses", $"{ID}.csv"));
+                        CSVDataManagement.courseDict.Clear();
+                        CSVDataManagement.courseList.Clear();
                         ScheduleMaker(data);
                         break;
                     case 0:
@@ -72,7 +74,6 @@ class Program
             {
                 data.SaveCourses(newStudent.studentSchedule, ID);
                 Console.WriteLine("Schedule successfully saved.");
-                CSVDataManagement.PrintSchedule(ID, data);
                 return;
             }
             else if (CSVDataManagement.courseDict.ContainsKey(input))
