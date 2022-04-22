@@ -21,13 +21,15 @@ public class CSVDataManagement : IDataManagement
     static bool masterListLoaded = false;
     public void LoadCourses(int ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
     {
-        var courseList = new List<Course>();
+
         string CRN;
         string CourseName;
         string TimeStart;
         string TimeEnd;
         string Description;
         string[] Days;
+        courseList.Clear();
+        courseDict.Clear(); //or i could clear
 
         foreach (var line in File.ReadAllLines(filePath))
         {
@@ -50,24 +52,24 @@ public class CSVDataManagement : IDataManagement
             if (ID == 0 && masterListLoaded == false) //loads the masterList
             {
                 masterList.Add(course);
-                masterDict.Add(int.Parse(CRN), course);
-                masterListLoaded = true;
-                return;
+                // try
+                // {
+                    masterDict.Add(int.Parse(CRN), course);
+                // }
+                // catch
+                // {
+
+                // }
             }
-            // try
-            // {
-            //     courseList.Add(course);
-            //     courseDict.Add(int.Parse(CRN), course);
-            // }
-            // catch
-            // {
-            //     if (courseDict.ContainsKey(int.Parse(CRN)))
-            //     {
-            //         duplicates++;
-            //         //Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
-            //         continue;
-            //     }
-            // }
+            else //loads a courseList
+            {
+                courseList.Add(course);
+                courseDict.Add(int.Parse(CRN), course);
+            }
+        }
+        if (ID == 0)
+        {
+            masterListLoaded = true;
         }
         return;
     }
@@ -101,13 +103,57 @@ public class CSVDataManagement : IDataManagement
     public static void PrintSchedule(int ID, CSVDataManagement data)
     {
         // CSVDataManagement data = new CSVDataManagement();
-        data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.csv"));
-        var PrintedList = CSVDataManagement.courseList;
-        foreach (Course course in PrintedList)
+        // data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.csv"));
+        if (ID == 0)
         {
-            CSVDataManagement.PrintCourse(course);
+            foreach (Course course in CSVDataManagement.masterList)
+            {
+                CSVDataManagement.PrintCourse(course);
+            }
         }
-        Console.WriteLine("Press enter to continue.");
-        Console.ReadKey();
+        else
+        {
+            foreach (Course course in CSVDataManagement.courseList)
+            {
+                CSVDataManagement.PrintCourse(course);
+            }
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadKey();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// try
+// {
+//     courseList.Add(course);
+//     courseDict.Add(int.Parse(CRN), course);
+// }
+// catch
+// {
+//     if (courseDict.ContainsKey(int.Parse(CRN)))
+//     {
+//         duplicates++;
+//         //Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
+//         continue;
+//     }
+// }

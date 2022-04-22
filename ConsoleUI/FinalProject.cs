@@ -18,11 +18,13 @@ class Program
         ID = Login.ReadInt();
         newStudent = new Student(ID);
         CSVDataManagement data = new();
+        data.LoadCourses(0, Path.Combine("Courses", $"0.csv"));
 
         while (true)
         {
             if (File.Exists(Path.Combine("Courses", $"{ID}.csv")))
             {
+                data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.csv"));
                 Console.Clear();
                 Console.WriteLine($"Welcome back, student number {ID}!\n1 - view your schedule\n2 - add to your schedule\n3 - delete your schedule and start over\n0 - exit application");  //I didn't have time to make a delete course method
                 int input = Login.ReadInt(0, 3);
@@ -73,7 +75,7 @@ class Program
                 CSVDataManagement.PrintSchedule(ID, data);
                 return;
             }
-            if (CSVDataManagement.courseList.Contains(CSVDataManagement.courseDict[input]))
+            else if (CSVDataManagement.courseDict.ContainsKey(input))
             {
                 Console.WriteLine($"Course {input} has already been added. Try another one.");
             }
@@ -81,7 +83,7 @@ class Program
             {
                 try
                 {
-                    newStudent.AddCourse(CSVDataManagement.courseDict[input]);
+                    newStudent.AddCourse(CSVDataManagement.masterDict[input]);
                     Console.WriteLine("Course added successfully. Enter another CRN or enter 0 to save.");
                 }
                 catch
