@@ -8,23 +8,15 @@ public abstract class Person
     string email;
 
     List<Course> courseSchedule = new List<Course>(); //every time a course is dragged and dropped, it is added to this list. 
-
-    public void AddCourse()
-    {
-        
-    }
-    
 }
 
 public class Student : Person
 {
-
     public Student(int ID)
     {
         var studentID = ID;
     }
     static int studentsRegistered = 0;
-
     public int studentID;
     public List<Course> studentSchedule = new List<Course>();
 
@@ -47,13 +39,11 @@ public class Professor : Person //make it make a list of type professors with al
 {
     string office;
     string officeHours;
-
     List<Course> professorSchedule = new List<Course>();
 
     public void AddCourse(Course courseToBeAdded)
     {
         professorSchedule.Add(courseToBeAdded);
     }
-
 }
 
