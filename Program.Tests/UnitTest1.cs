@@ -10,7 +10,7 @@ public class BogusInterfaceImplementation : IDataManagement
     public string error;
     public void LoadCourses(int ID, string filePath)
     {
-        if (File.Exists(filePath))
+        if (!File.Exists(filePath))
         {
             error = "File not found.";
             Console.WriteLine(error);
