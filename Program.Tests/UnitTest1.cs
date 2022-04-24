@@ -6,22 +6,22 @@ using System.Collections.Generic;
 
 public class BogusInterfaceImplementation : IDataManagement
 {
-    public static List<Course> testCourseList;
+    public Course newCourse;
     public string error;
+    public List<Course> testCourseList;
+
     public void LoadCourses(int ID, string filePath)
     {
-        if (!File.Exists(filePath))
+        if (File.Exists(filePath) == false)
         {
             error = "File not found. Generating file.";
             Console.WriteLine(error);
             File.Create(filePath);
         }  //test how it could respond if it doesnt find a file. simulate any behavior i want
-        else
+
+        foreach (string line in File.ReadAllLines(filePath))
         {
-            foreach (string line in File.ReadAllLines(filePath))
-            {
-                testCourseList.Add(new Course(line));
-            }
+            testCourseList.Add(new Course(line));
         }
     }
 
@@ -44,14 +44,13 @@ public class Tests
 
 
     [Test]
-    public void TestIfLoadCoursesCreatesObject() //adding a course, if it adds 1, make a schedule validator class that make sure they have certain courses. business rules
+    public void TestIfLoadCoursesCreatesObject() //if it adds a course, make a schedule validator class that make sure they have certain courses. business rules
     {
         BogusInterfaceImplementation BII = new();
         int ID = 6;
         BII.LoadCourses(ID, $"{ID}.csv");
 
-        Assert.IsInstanceOf<Course>(BogusInterfaceImplementation.testCourseList[0]);
-
+        Assert.IsInstanceOf<Course>(BII.newCourse);
     }
 
     [Test]
@@ -61,7 +60,7 @@ public class Tests
         int ID = 6;
         BII.LoadCourses(ID, $"{ID}.csv");
 
-        Assert.AreEqual("1234", BogusInterfaceImplementation.testCourseList[0].CRN);
+        Assert.AreEqual("6789", BII.newCourse.CRN);
 
     }
 

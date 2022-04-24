@@ -78,7 +78,7 @@ class Program
             }
             else if (CSVDataManagement.courseDict.ContainsKey(input))
             {
-                Console.WriteLine($"Course {input} has already been added. Try another one.");
+                Console.WriteLine($"Course {input} has already been added. Try another one or press 0 to save.");
             }
             else
             {
