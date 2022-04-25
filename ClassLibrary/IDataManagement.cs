@@ -21,7 +21,6 @@ public class CSVDataManagement : IDataManagement
     static bool masterListLoaded = false;
     public void LoadCourses(int ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
     {
-
         string CRN;
         string CourseName;
         string TimeStart;
@@ -57,16 +56,9 @@ public class CSVDataManagement : IDataManagement
             if (ID == 0 && masterListLoaded == false) //loads the masterList
             {
                 masterList.Add(course);
-                // try
-                // {
-                    masterDict.Add(int.Parse(CRN), course);
-                // }
-                // catch
-                // {
-
-                // }
+                masterDict.Add(int.Parse(CRN), course);  
             }
-            else //loads a courseList
+            else //adds to the courseList
             {
                 courseList.Add(course);
                 try
@@ -86,6 +78,17 @@ public class CSVDataManagement : IDataManagement
         return;
     }
 
+    public void SaveCourses(List<Course> courses, int ID)
+    {
+        StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.csv"));
+        foreach (Course course in courses)
+        {
+            writer.WriteLine($"{course.CRN},{course.CourseName},{course.TimeStart},{course.TimeEnd},{course.Description},{string.Join("|", course.Days)}");
+
+        }
+        writer.Close();
+    }
+
     public static void PrintCourse(Course course)
     {
         Console.WriteLine($"Course Name: {course.CourseName}");
@@ -98,17 +101,6 @@ public class CSVDataManagement : IDataManagement
         Console.WriteLine($"from {course.TimeStart} to {course.TimeEnd}");
         Console.WriteLine($"Description: {course.Description}");
         Console.WriteLine("\n"); //to seperate the courses
-    }
-
-    public void SaveCourses(List<Course> courses, int ID)
-    {
-        StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.csv"));
-        foreach (Course course in courses)
-        {
-            writer.WriteLine($"{course.CRN},{course.CourseName},{course.TimeStart},{course.TimeEnd},{course.Description},{string.Join("|", course.Days)}");
-
-        }
-        writer.Close();
     }
 
     int duplicates = 0;

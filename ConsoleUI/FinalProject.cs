@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Collections;
 using FinalProject;
 
-
-
 class Program
 {
     static Student newStudent;
     static int ID;
-    
-
     static void Main()
     {
         Console.Clear();

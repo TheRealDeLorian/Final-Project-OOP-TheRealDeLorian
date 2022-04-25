@@ -42,9 +42,14 @@ public class Tests
     {
     }
 
+    [Test]
+    public void TestIfReadIntWillReturnErrorMessage()
+    {
+        Login.ReadInt();
+    }
 
     [Test]
-    public void TestIfLoadCoursesCreatesObject() //if it adds a course, make a schedule validator class that make sure they have certain courses. business rules
+    public void TestIfLoadCoursesCreatesObject()
     {
         BogusInterfaceImplementation BII = new();
         int ID = 6;
