@@ -67,14 +67,18 @@ class Program
         CSVDataManagement.PrintSchedule(0, data);
 
         Console.WriteLine("\nSelect courses by typing a CRN and pressing enter. When finished, input 0.");
-        
+
         List<string> addedCourses = new();
+        bool changes = false;
         while (true)
         {
             int input = Login.ReadInt();
             if (input == 0)
             {
-                data.SaveCourses(newStudent.studentSchedule, ID);
+                if (changes)
+                {
+                    data.SaveCourses(newStudent.studentSchedule, ID);
+                }
                 Console.WriteLine("Schedule successfully saved.");
                 return;
             }
@@ -89,6 +93,7 @@ class Program
                     newStudent.AddCourse(CSVDataManagement.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
                     CSVDataManagement.courseDict.Add(input, CSVDataManagement.masterDict[input]);
                     Console.WriteLine("Course added successfully. Enter another CRN or enter 0 to save.");
+                    changes = true;
                 }
                 catch
                 {
