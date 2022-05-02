@@ -39,6 +39,7 @@ class Program
                         break;
                     case 3:
                         Console.Clear();
+                        File.WriteAllText(Path.Combine("Courses", $"{ID}.csv"), string.Empty);
                         File.Delete(Path.Combine("Courses", $"{ID}.csv"));
                         CSVDataManagement.courseDict.Clear();
                         CSVDataManagement.courseList.Clear();
