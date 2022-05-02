@@ -86,6 +86,7 @@ class Program
                 try
                 {
                     newStudent.AddCourse(CSVDataManagement.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
+                    CSVDataManagement.courseDict.Add(input, CSVDataManagement.masterDict[input]);
                     Console.WriteLine("Course added successfully. Enter another CRN or enter 0 to save.");
                 }
                 catch
