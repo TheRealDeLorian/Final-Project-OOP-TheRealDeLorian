@@ -76,6 +76,7 @@ public class CSVDataManagement : IDataManagement
 
     public void SaveCourses(List<Course> courses, int ID)
     {
+        File.WriteAllText(Path.Combine("Courses", $"{ID}.txt"), string.Empty);
         StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.txt"));
         foreach (Course course in courses)
         {

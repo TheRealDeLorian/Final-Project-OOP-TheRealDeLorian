@@ -1,0 +1,2 @@
+6420,Intro to be a Jedi,8:30 AM,9:20 AM,Master the force and learn the Jedi arts!,Monday|Wednesday|Friday
+3200,The Mandalorian Way,9:30 AM,10:20 AM,Learning about The Way,Monday|Wednesday|Friday
