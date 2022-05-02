@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Dorian Cottle
+//CS 1410
+//5-1-2022
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using FinalProject;
@@ -14,26 +17,30 @@ class Program
         ID = Login.ReadInt();
         newStudent = new Student(ID);
         CSVDataManagement data = new();
-        data.LoadCourses(0, Path.Combine("Courses", $"0.csv"));
+        data.LoadCourses(0, Path.Combine("Courses", $"0.txt"));
 
         while (true)
         {
-            if (File.Exists(Path.Combine("Courses", $"{ID}.csv")))
+            if (File.Exists(Path.Combine("Courses", $"{ID}.txt")))
             {
-                data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.csv"));
+                data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.txt"));
                 Console.Clear();
                 Console.WriteLine($"Welcome back, student number {ID}!\n1 - view your schedule\n2 - add to your schedule\n3 - delete your schedule and start over\n0 - exit application");  //I didn't have time to make a delete course method
                 int input = Login.ReadInt(0, 3);
                 switch (input)
                 {
                     case 1:
+                        Console.Clear();
                         CSVDataManagement.PrintSchedule(ID, data);
                         continue;
                     case 2:
+                        Console.Clear();
                         ScheduleMaker(data);
                         break;
                     case 3:
-                        File.Delete(Path.Combine("Courses", $"{ID}.csv"));
+                        Console.Clear();
+                        File.WriteAllText(Path.Combine("Courses", $"{ID}.txt"), string.Empty);
+                        File.Delete(Path.Combine("Courses", $"{ID}.txt"));
                         CSVDataManagement.courseDict.Clear();
                         CSVDataManagement.courseList.Clear();
                         ScheduleMaker(data);
@@ -60,15 +67,25 @@ class Program
         CSVDataManagement.PrintSchedule(0, data);
 
         Console.WriteLine("\nSelect courses by typing a CRN and pressing enter. When finished, input 0.");
-        
+
         List<string> addedCourses = new();
+        bool changes = false;
         while (true)
         {
-            
             int input = Login.ReadInt();
             if (input == 0)
             {
-                data.SaveCourses(newStudent.studentSchedule, ID);
+                if (changes)
+                {
+                    data.SaveCourses(newStudent.studentSchedule, ID);
+                }
+                else if (!changes && CSVDataManagement.courseList.Count == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Nothing saved. Courselist is currently empty. Press enter to continue and add courses.");
+                    Console.ReadKey();
+                    break;
+                }
                 Console.WriteLine("Schedule successfully saved.");
                 return;
             }
@@ -80,8 +97,10 @@ class Program
             {
                 try
                 {
-                    newStudent.AddCourse(CSVDataManagement.masterDict[input]);
+                    newStudent.AddCourse(CSVDataManagement.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
+                    CSVDataManagement.courseDict.Add(input, CSVDataManagement.masterDict[input]);
                     Console.WriteLine("Course added successfully. Enter another CRN or enter 0 to save.");
+                    changes = true;
                 }
                 catch
                 {
@@ -90,10 +109,4 @@ class Program
             }
         }
     }
-
-
-
-
-
 }
-

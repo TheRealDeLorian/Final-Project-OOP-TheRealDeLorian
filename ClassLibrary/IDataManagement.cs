@@ -1,15 +1,11 @@
-
+//this is the dev branch
 namespace FinalProject;
-
 using System;
 using System.Collections;
-
 public interface IDataManagement
 {
     public void LoadCourses(int ID, string filePath);
     public void SaveCourses(List<Course> courses, int ID);
-
-
 }
 
 public class CSVDataManagement : IDataManagement
@@ -80,7 +76,8 @@ public class CSVDataManagement : IDataManagement
 
     public void SaveCourses(List<Course> courses, int ID)
     {
-        StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.csv"));
+        File.WriteAllText(Path.Combine("Courses", $"{ID}.txt"), string.Empty);
+        StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.txt"));
         foreach (Course course in courses)
         {
             writer.WriteLine($"{course.CRN},{course.CourseName},{course.TimeStart},{course.TimeEnd},{course.Description},{string.Join("|", course.Days)}");
@@ -106,8 +103,6 @@ public class CSVDataManagement : IDataManagement
     int duplicates = 0;
     public static void PrintSchedule(int ID, CSVDataManagement data)
     {
-        // CSVDataManagement data = new CSVDataManagement();
-        // data.LoadCourses(ID, Path.Combine("Courses", $"{ID}.csv"));
         if (ID == 0)
         {
             foreach (Course course in CSVDataManagement.masterList)
@@ -127,37 +122,3 @@ public class CSVDataManagement : IDataManagement
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// try
-// {
-//     courseList.Add(course);
-//     courseDict.Add(int.Parse(CRN), course);
-// }
-// catch
-// {
-//     if (courseDict.ContainsKey(int.Parse(CRN)))
-//     {
-//         duplicates++;
-//         //Console.WriteLine($"Error. Multiple instances of course {CRN} detected."); //then use the course.remove method on that course to remove it when I finish it
-//         continue;
-//     }
-// }

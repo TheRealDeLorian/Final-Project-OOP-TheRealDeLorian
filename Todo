@@ -1,5 +1,19 @@
 Make courses more usable
 
- MAKE FILES
+1. MAKE FILES
 2. Make a method that can read the file and turn it into a hashtable of course classes
 3. add error message for invalid id
+
+
+
+********USER FEEDBACK********
+
+--When I first went to add a class it only popped up with one of them until I went back in to add classes and then they all showed up, I was also able to continuously add the same class over and over again and it would keep adding it to my schedule. HALF RESOLVED -- now only repeats courses when you go through the menu twice
+
+
+***********RESOLVED***********
+
+--Too much white space at the bottom of your UI.
+
+--pressed 1 and nothing happened
+Yet another user said "Saved my schedule. Was there again after exit and running again." So IDK what to think. I just tested it and it still works

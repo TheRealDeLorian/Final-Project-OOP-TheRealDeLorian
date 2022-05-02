@@ -14,15 +14,6 @@ public class Course //all this needs to do is take a string, split it up, and co
     public string TimeEnd { get; set; }
     public string Description { get; set; }
     public string[] Days { get; set; }
-
-
-    
-
-    //make the save method
-
-    //make some non abstract classes for courses with more than one day
-
-
 }
 
 
