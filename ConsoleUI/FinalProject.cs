@@ -79,6 +79,13 @@ class Program
                 {
                     data.SaveCourses(newStudent.studentSchedule, ID);
                 }
+                else if (!changes && CSVDataManagement.courseList.Count == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Nothing saved. Courselist is currently empty. Press enter to continue and add courses.");
+                    Console.ReadKey();
+                    break;
+                }
                 Console.WriteLine("Schedule successfully saved.");
                 return;
             }
