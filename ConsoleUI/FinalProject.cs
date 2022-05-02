@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Dorian Cottle
+//CS 1410
+//5-1-2022
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using FinalProject;
@@ -67,7 +70,6 @@ class Program
         List<string> addedCourses = new();
         while (true)
         {
-            
             int input = Login.ReadInt();
             if (input == 0)
             {
@@ -83,7 +85,7 @@ class Program
             {
                 try
                 {
-                    newStudent.AddCourse(CSVDataManagement.masterDict[input]);
+                    newStudent.AddCourse(CSVDataManagement.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
                     Console.WriteLine("Course added successfully. Enter another CRN or enter 0 to save.");
                 }
                 catch
