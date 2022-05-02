@@ -27,12 +27,15 @@ class Program
                 switch (input)
                 {
                     case 1:
+                        Console.Clear();
                         CSVDataManagement.PrintSchedule(ID, data);
                         continue;
                     case 2:
+                        Console.Clear();
                         ScheduleMaker(data);
                         break;
                     case 3:
+                        Console.Clear();
                         File.Delete(Path.Combine("Courses", $"{ID}.csv"));
                         CSVDataManagement.courseDict.Clear();
                         CSVDataManagement.courseList.Clear();
