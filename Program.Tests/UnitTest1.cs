@@ -29,7 +29,7 @@ public class BogusInterfaceImplementation : IDataManagement
     {
         foreach (Course course in courses)
         {
-            File.AppendText(Path.Combine("TestCourses", $"{ID}.csv"));
+            File.AppendText(Path.Combine("TestCourses", $"{ID}.txt"));
         }
     }
 }
@@ -53,7 +53,7 @@ public class Tests
     {
         BogusInterfaceImplementation BII = new();
         int ID = 6;
-        BII.LoadCourses(ID, $"{ID}.csv");
+        BII.LoadCourses(ID, $"{ID}.txt");
 
         Assert.IsInstanceOf<Course>(BII.newCourse);
     }
@@ -63,7 +63,7 @@ public class Tests
     {
         BogusInterfaceImplementation BII = new();
         int ID = 6;
-        BII.LoadCourses(ID, $"{ID}.csv");
+        BII.LoadCourses(ID, $"{ID}.txt");
 
         Assert.AreEqual("6789", BII.newCourse.CRN);
 
