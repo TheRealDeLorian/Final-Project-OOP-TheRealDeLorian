@@ -17,6 +17,7 @@ public class Student : Person
         var studentID = ID;
     }
     static int studentsRegistered = 0;
+    static int coursesRegistered = 0;
     public int studentID;
     public List<Course> studentSchedule = new List<Course>();
 
@@ -26,9 +27,9 @@ public class Student : Person
         {
             studentsRegistered++;
         }
-
-        studentSchedule.Add(courseToBeAdded);
         
+        studentSchedule.Add(courseToBeAdded);
+        coursesRegistered++;
         return;
     }
 
