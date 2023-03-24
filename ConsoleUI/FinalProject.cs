@@ -17,7 +17,7 @@ class Program
         ID = Login.ReadInt();
         newStudent = new Student(ID);
         CSVDataManagement data = new();
-        data.LoadCourses(0, Path.Combine("Courses", $"0.txt"));
+        data.LoadCourses(0, Path.Combine(Directory.GetCurrentDirectory(), $"Courses/0.txt"));
 
         while (true)
         {
