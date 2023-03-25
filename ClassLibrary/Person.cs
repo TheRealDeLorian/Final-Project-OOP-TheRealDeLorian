@@ -14,11 +14,11 @@ public class Student : Person
 {
     public Student(string ID)
     {
-        var studentID = ID;
+        string studentID = ID;
     }
     static int studentsRegistered = 0;
     static int coursesRegistered = 0;
-    public int studentID;
+    public static string studentID;
     public List<Course> studentSchedule = new List<Course>();
 
     public void AddCourse(Course courseToBeAdded)//make overflows with course ID numbers and other abbreviations

@@ -3,7 +3,7 @@ using Microsoft.VisualBasic;
 
 namespace WinFormsUI
 {
-    public static class Program
+    public static class WinFormProgram
     {
         static Student newStudent;
         static int ID;
@@ -14,9 +14,9 @@ namespace WinFormsUI
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
-            Form1 f1 = new Form1();
-            f1.Show();
+            Application.Run(new LoginScreen());
+            LoginScreen login = new LoginScreen();
+            login.Show();
 
             
 
