@@ -12,22 +12,24 @@ public abstract class Person
 
 public class Student : Person
 {
-    public Student(int ID)
+    public Student()
     {
-        var studentID = ID;
+
     }
     static int studentsRegistered = 0;
-    public int studentID;
-    public List<Course> studentSchedule = new List<Course>();
+    static int coursesRegistered = 0;
+    public static string studentID;
+    public static List<Course> studentSchedule = new List<Course>();
 
-    public void AddCourse(Course courseToBeAdded)//make overflows with course ID numbers and other abbreviations
+    public static void AddCourse(Course courseToBeAdded)//make overflows with course ID numbers and other abbreviations
     {
         if(studentSchedule.Count == 0)
         {
             studentsRegistered++;
         }
-
+        
         studentSchedule.Add(courseToBeAdded);
+        coursesRegistered++;
         return;
     }
 

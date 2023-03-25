@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class Login
+public class LoginClass
 {
     public static int ReadInt(int min = int.MinValue, int max = int.MaxValue)
     {
