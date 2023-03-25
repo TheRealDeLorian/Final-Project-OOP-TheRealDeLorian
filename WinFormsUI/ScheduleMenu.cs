@@ -21,8 +21,6 @@ namespace WinFormsUI
             ID = Student.studentID;
 
             txtbxSchedule.Text = PrintSchedule();
-
-
         }
 
         public string PrintSchedule()

@@ -79,11 +79,12 @@
             this.txtbxSchedule.Location = new System.Drawing.Point(170, 45);
             this.txtbxSchedule.Multiline = true;
             this.txtbxSchedule.Name = "txtbxSchedule";
+            this.txtbxSchedule.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtbxSchedule.Size = new System.Drawing.Size(412, 338);
             this.txtbxSchedule.TabIndex = 5;
             this.txtbxSchedule.TextChanged += new System.EventHandler(this.txtbxSchedule_TextChanged);
             // 
-            // Form2
+            // ScheduleMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,7 +94,7 @@
             this.Controls.Add(this.btnErase);
             this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "ScheduleMenu";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
