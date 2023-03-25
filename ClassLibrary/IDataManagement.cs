@@ -2,20 +2,15 @@
 namespace FinalProject;
 using System;
 using System.Collections;
-public interface IDataManagement
-{
-    public void LoadCourses(string ID, string filePath);
-    public void SaveCourses(List<Course> courses, string ID);
-}
 
-public class CSVDataManagement : IDataManagement
+public static class DataMan
 {
     public static Dictionary<int, Course> masterDict = new();
     public static List<Course> masterList = new();
     public static Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
     public static List<Course> courseList = new();
     static bool masterListLoaded = false;
-    public void LoadCourses(string ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
+    public static void LoadCourses(string ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
     {
         string CRN;
         string CourseName;
@@ -73,7 +68,7 @@ public class CSVDataManagement : IDataManagement
         return;
     }
 
-    public void SaveCourses(List<Course> courses, string ID)
+    public static void SaveCourses(List<Course> courses, string ID)
     {
         File.WriteAllText(Path.Combine("Courses", $"{ID}.txt"), string.Empty);
         StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.txt"));
