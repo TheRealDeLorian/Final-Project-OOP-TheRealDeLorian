@@ -24,7 +24,6 @@ namespace WinFormsUI
         private void SubmitIDbtn_Click(object sender, EventArgs e)
         {
             ID = txtBoxID.Text;
-            MessageBox.Show(ID);
         }
 
         
