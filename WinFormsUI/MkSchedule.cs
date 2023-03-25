@@ -58,23 +58,32 @@ namespace WinFormsUI
             }
             try
             {
+                if(DataMan.courseDict.ContainsKey(input))
+                {
+                    label3.Text = "You've already added this class.";
+                    textBox1.Clear();
+                    return;
+                }
                 Student.AddCourse(DataMan.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
                 DataMan.courseDict.Add(input, DataMan.masterDict[input]);
                 label3.Text = "Course added successfully.";
             }
             catch
             {
-                label3.Text = "Oops! Something went wrong. Please enter a valid CRN.";
+                label3.Text = "Oops! Something went wrong. Please enter a valid CRN that you haven't already added.";
             }
-            //save course according to CRN in the textbox
-            //label 3 displays confirmation msg
-
+            textBox1.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             DataMan.SaveCourses(Student.studentSchedule, Student.studentID);
             ScheduleMenu.instance.PrintSchedule();
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }
