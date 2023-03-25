@@ -10,7 +10,7 @@ public static class DataMan
     public static Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
     public static List<Course> courseList = new();
     static bool masterListLoaded = false;
-    static string dir = $"{Directory.GetCurrentDirectory()}\\..\\..\\..\\";
+    public static string dir = $"{Directory.GetCurrentDirectory()}\\..\\..\\..\\";
 
     public static void LoadCourses(string ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
     {

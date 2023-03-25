@@ -56,10 +56,13 @@ namespace WinFormsUI
             else
             {
                 erlbl.Text = "Please enter a valid student ID.";
-                return;
             }
+            txtBoxID.Clear();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

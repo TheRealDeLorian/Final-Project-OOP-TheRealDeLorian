@@ -46,8 +46,14 @@ namespace WinFormsUI
                     $"Description: {course.Description}\r\n" +
                     "\r\n"; //to seperate the courses
             }
-            txtbxSchedule.Text = courseInfo;
-            //return courseInfo;
+            if(courseInfo == "") 
+            {
+                txtbxSchedule.Text = "No classes scheduled";
+            }
+            else
+            {
+                txtbxSchedule.Text = courseInfo;
+            }
         }
 
         public static string PrintMasterSchedule()
@@ -91,12 +97,17 @@ namespace WinFormsUI
 
         private void button1_Click_1(object sender, EventArgs e) //erases everything 
         {
-            File.WriteAllText(Path.Combine("Courses", $"{ID}.txt"), string.Empty);
-            File.Delete(Path.Combine("Courses", $"{ID}.txt"));
+            File.WriteAllText($"{DataMan.dir}/Courses/{ID}.txt", string.Empty);
+            File.Delete($"{DataMan.dir}/Courses/{ID}.txt");
             DataMan.courseDict.Clear();
             DataMan.courseList.Clear();
+            Student.studentSchedule.Clear();
+            PrintSchedule();
+        }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

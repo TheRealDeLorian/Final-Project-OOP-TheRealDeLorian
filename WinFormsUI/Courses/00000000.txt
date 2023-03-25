@@ -1,8 +1,1 @@
-1593,A Cappella Choir,1:30 PM,2:20 PM,sing some songs,Monday|Wednesday|Friday
-1854,Intro to Web Development,11:00 AM,12:15 PM,learn web development,Tuesday|Thursday
-1854,Intro to Web Development,11:00 AM,12:15 PM,learn web development,Tuesday|Thursday
 1345,Object Oriented Programming,8:30 AM,9:20 PM,Increase your C# knowledge,Monday|Wednesday|Friday
-1324,Pre-Calculus,1:30 PM,2:20 PM,Learn what you need to know before you go to Calculus.,Monday|Tuesday|Wednesday|Thursday|Friday
-1345,Object Oriented Programming,8:30 AM,9:20 PM,Increase your C# knowledge,Monday|Wednesday|Friday
-1854,Intro to Web Development,11:00 AM,12:15 PM,learn web development,Tuesday|Thursday
-6420,Intro to be a Jedi,8:30 AM,9:20 AM,Master the force and learn the Jedi arts!,Monday|Wednesday|Friday
