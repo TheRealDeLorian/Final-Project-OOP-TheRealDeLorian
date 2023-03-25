@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SubmitIDbtn = new System.Windows.Forms.Button();
+            this.erlbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtBoxID
@@ -72,16 +73,24 @@
             this.SubmitIDbtn.UseVisualStyleBackColor = true;
             this.SubmitIDbtn.Click += new System.EventHandler(this.SubmitIDbtn_Click);
             // 
-            // Form1
+            // erlbl
+            // 
+            this.erlbl.Location = new System.Drawing.Point(294, 238);
+            this.erlbl.Name = "erlbl";
+            this.erlbl.Size = new System.Drawing.Size(197, 67);
+            this.erlbl.TabIndex = 4;
+            // 
+            // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.erlbl);
             this.Controls.Add(this.SubmitIDbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxID);
-            this.Name = "Form1";
+            this.Name = "LoginScreen";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -93,6 +102,6 @@
         private Label label2;
         private Button SubmitIDbtn;
         public TextBox txtBoxID;
-        
+        private Label erlbl;
     }
 }

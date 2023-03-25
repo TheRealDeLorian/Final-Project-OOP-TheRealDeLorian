@@ -53,7 +53,7 @@
             this.btnAddCourse.TabIndex = 2;
             this.btnAddCourse.Text = "Add course";
             this.btnAddCourse.UseVisualStyleBackColor = true;
-            this.btnAddCourse.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddCourse.Click += new System.EventHandler(this.MkSchedule_Click);
             // 
             // btnErase
             // 
