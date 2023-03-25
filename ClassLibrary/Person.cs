@@ -12,7 +12,7 @@ public abstract class Person
 
 public class Student : Person
 {
-    public Student(int ID)
+    public Student(string ID)
     {
         var studentID = ID;
     }

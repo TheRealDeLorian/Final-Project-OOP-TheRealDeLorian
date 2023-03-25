@@ -31,7 +31,7 @@ class Program
                 {
                     case 1:
                         Console.Clear();
-                        CSVDataManagement.PrintSchedule(ID, data);
+                        PrintSchedule(ID, data);
                         continue;
                     case 2:
                         Console.Clear();
@@ -64,7 +64,7 @@ class Program
         Console.Clear();
         Console.WriteLine("Loading...");
 
-        CSVDataManagement.PrintSchedule(0, data);
+        PrintSchedule(0, data);
 
         Console.WriteLine("\nSelect courses by typing a CRN and pressing enter. When finished, input 0.");
 
@@ -108,5 +108,39 @@ class Program
                 }
             }
         }
+    }
+
+    public static void PrintSchedule(int ID, CSVDataManagement data)
+    {
+        if (ID == 0)
+        {
+            foreach (Course course in CSVDataManagement.masterList)
+            {
+                PrintCourse(course);
+            }
+        }
+        else
+        {
+            foreach (Course course in CSVDataManagement.courseList)
+            {
+                PrintCourse(course);
+            }
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadKey();
+        }
+    }
+
+    public static void PrintCourse(Course course)
+    {
+        Console.WriteLine($"Course Name: {course.CourseName}");
+        Console.WriteLine($"CRN: {course.CRN}");
+        Console.Write("Days offered: ");
+        foreach (string day in course.Days)
+        {
+            Console.Write($"{day} ");
+        }
+        Console.WriteLine($"from {course.TimeStart} to {course.TimeEnd}");
+        Console.WriteLine($"Description: {course.Description}");
+        Console.WriteLine("\n"); //to seperate the courses
     }
 }

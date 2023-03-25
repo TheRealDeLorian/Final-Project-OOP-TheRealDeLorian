@@ -12,10 +12,22 @@ namespace WinFormsUI
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        string ID;
+        public Form2(string iD)
         {
             InitializeComponent();
-            
+            ID = iD;
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
