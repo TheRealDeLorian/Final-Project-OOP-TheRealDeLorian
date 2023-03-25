@@ -10,6 +10,8 @@ public static class DataMan
     public static Dictionary<int, Course> courseDict = new Dictionary<int, Course>();
     public static List<Course> courseList = new();
     static bool masterListLoaded = false;
+    static string dir = $"{Directory.GetCurrentDirectory()}\\..\\..\\..\\";
+
     public static void LoadCourses(string ID, string filePath) //just makes the course objects and puts em in a list and a dictionary. That's all it does.
     {
         string CRN;
@@ -70,15 +72,18 @@ public static class DataMan
 
     public static void SaveCourses(List<Course> courses, string ID)
     {
-        File.WriteAllText(Path.Combine("Courses", $"{ID}.txt"), string.Empty);
-        StreamWriter writer = File.AppendText(Path.Combine("Courses", $"{ID}.txt"));
+        //File.WriteAllText($"{dir}/Courses/{ID}.txt", string.Empty);
+        StreamWriter writer = File.AppendText($"{dir}/Courses/{ID}.txt");
         foreach (Course course in courses)
         {
             writer.WriteLine($"{course.CRN},{course.CourseName},{course.TimeStart},{course.TimeEnd},{course.Description},{string.Join("|", course.Days)}");
-
         }
         writer.Close();
+        for(int i = 0; i < courses.Count; i++)
+        {
+            courseList.Add(Student.studentSchedule[i]);
+        }
     }
-   
+
 }
 

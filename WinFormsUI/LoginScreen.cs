@@ -15,7 +15,7 @@ namespace WinFormsUI
         public LoginScreen()
         {
             InitializeComponent();
-            newStudent = new Student(ID);
+            newStudent = new Student();
             //MessageBox.Show(dir);
             //initializes master schedule
             if (File.Exists($"{dir}\\Courses\\0.txt"))
@@ -40,17 +40,26 @@ namespace WinFormsUI
 
         private void SubmitIDbtn_Click(object sender, EventArgs e)
         {
-            ID = txtBoxID.Text;
-            if (!File.Exists($"{dir}/Courses/{ID}.txt"))
+            if (txtBoxID.Text == "0" || txtBoxID.Text.Length == 8)
             {
-                FileStream fs = File.Create($"{dir}/Courses/{ID}.txt");
-                fs.Close();
+                ID = txtBoxID.Text;
+                Student.studentID = txtBoxID.Text;
+                if (!File.Exists($"{dir}/Courses/{ID}.txt"))
+                {
+                    FileStream fs = File.Create($"{dir}/Courses/{ID}.txt");
+                    fs.Close();
+                }
+                DataMan.LoadCourses(ID, $"{dir}/Courses/{ID}.txt");
+                ScheduleMenu f2 = new();
+                f2.ShowDialog();
             }
-            DataMan.LoadCourses(ID, $"{dir}/Courses/{ID}.txt");
-            ScheduleMenu f2 = new();
-            f2.ShowDialog();
+            else
+            {
+                erlbl.Text = "Please enter a valid student ID.";
+                return;
+            }
         }
 
-        
+
     }
 }

@@ -15,7 +15,7 @@ class Program
         Console.Clear();
         Console.WriteLine("Welcome. Are you ready to make a class schedule? Please enter your Student ID");
         ID = LoginClass.ReadInt().ToString();
-        newStudent = new Student(ID);
+        newStudent = new Student();
         DataMan.LoadCourses("0", Path.Combine(Directory.GetCurrentDirectory(), $"Courses/0.txt"));
 
         while (true)
@@ -76,7 +76,7 @@ class Program
             {
                 if (changes)
                 {
-                    DataMan.SaveCourses(newStudent.studentSchedule, ID);
+                    DataMan.SaveCourses(Student.studentSchedule, ID);
                 }
                 else if (!changes && DataMan.courseList.Count == 0)
                 {
@@ -96,7 +96,7 @@ class Program
             {
                 try
                 {
-                    newStudent.AddCourse(DataMan.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
+                    Student.AddCourse(DataMan.masterDict[input]); //takes a course already saved to masterdict and places it also in newStudent.AddCourse
                     DataMan.courseDict.Add(input, DataMan.masterDict[input]);
                     Console.WriteLine("Course added successfully. Enter another CRN or enter 0 to save.");
                     changes = true;
